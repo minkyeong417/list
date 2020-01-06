@@ -1,10 +1,9 @@
 filename = input('Enter a file name: ')
 file = open(filename,'r')
-lst = list()
+count = 0
 for line in file:
-    linelst = line.split()
-    for word in linelst:
-        if word not in lst:
-            lst.append(word)
-lst.sort()
-print(lst)
+    if line.startswith('From '):
+        linelst = line.split()
+        print(linelst[1])
+        count = count + 1
+print("There were", count, "lines in the file with From as the first word")
